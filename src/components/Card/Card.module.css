@@ -4,4 +4,8 @@
   min-width: 20rem;
   border-radius: 10px;
   background-color: white;
+  padding: 1rem;
+  box-shadow: rgba(199, 197, 197, 0.2) 0px 4px 12px;
+  display:flex;
+  flex-direction:column;
 }

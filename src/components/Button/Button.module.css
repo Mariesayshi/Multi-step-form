@@ -1,0 +1,13 @@
+.button {
+    margin: 0.5rem 0;
+    margin-left:auto;
+    background-color: hsl(213, 96%, 18%);
+    color: white;
+    font-family: inherit;
+    padding: 0.8rem 1rem;
+    font-size:0.9rem;
+    outline:none; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;   
+}
