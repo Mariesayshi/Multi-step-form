@@ -1,8 +1,8 @@
-import "./App.css";
+// import classes from "./App.css";
+import Card from "./components/Card/Card";
 
-function App() {
-
-  return <div>Form</div>;
-}
+const App = () => {
+  return <Card>Form</Card>;
+};
 
 export default App;
