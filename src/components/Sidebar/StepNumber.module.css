@@ -1,0 +1,39 @@
+.stepNumber {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  color: white;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.subHeading {
+  color: hsl(231, 11%, 63%);
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+.heading {
+  color: white;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 0.7rem;
+}
+
+.stepHeadings {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

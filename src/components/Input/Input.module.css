@@ -1,23 +1,24 @@
 .input {
-    padding: 0.7rem 0.5rem;
-    border-radius: 5px;
-    outline: none;
-    border: 1px solid hsl(229, 24%, 87%);
-    margin: 0.2rem 0;
-    color: hsl(213, 96%, 18%);
-    width: 100%
+  padding: 0.7rem 0.5rem;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid hsl(229, 24%, 87%);
+  margin: 0.2rem 0;
+  color: hsl(213, 96%, 18%);
+  width: 100%;
+  font-weight: 700;
 }
 
 .input::placeholder {
-    color: hsl(229, 24%, 87%)
+  color: hsl(229, 24%, 87%);
 }
 
 .input:focus {
-    border: 1px solid hsl(243, 100%, 62%)
+  border: 1px solid hsl(243, 100%, 62%);
 }
 
 label {
-    display: block;
-    font-size: 0.8rem;
-    margin: 0.2rem 0;
+  display: block;
+  font-size: 0.8rem;
+  margin: 0.2rem 0;
 }

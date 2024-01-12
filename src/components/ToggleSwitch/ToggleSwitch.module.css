@@ -1,0 +1,34 @@
+.switch {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 2rem;
+  height: 1rem;
+  background: hsl(213, 96%, 18%);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  margin: 0rem 0.5rem;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 0.15rem;
+  left: 5px;
+  width: 0.7rem;
+  height: 0.7rem;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+.switch:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}

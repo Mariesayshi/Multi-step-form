@@ -1,0 +1,8 @@
+.formAndButton {
+  flex-grow: 1;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
