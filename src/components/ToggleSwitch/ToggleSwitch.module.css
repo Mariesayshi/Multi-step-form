@@ -4,7 +4,7 @@
   visibility: hidden;
 }
 
-label {
+.label {
   cursor: pointer;
   text-indent: -9999px;
   width: 2rem;
@@ -16,7 +16,7 @@ label {
   margin: 0rem 0.5rem;
 }
 
-label:after {
+.label:after {
   content: "";
   position: absolute;
   top: 0.15rem;

@@ -3,7 +3,9 @@ const ToggleSwitch = () => {
   return (
     <>
       <input type="checkbox" id="switch" className={classes.switch} />
-      <label htmlFor="switch">Toggle</label>
+      <label className={classes.label} htmlFor="switch">
+        Toggle
+      </label>
     </>
   );
 };
