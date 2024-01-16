@@ -6,3 +6,43 @@
   justify-content: space-between;
   padding: 1rem 0;
 }
+
+.pageBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-weight: 700;
+  color: hsl(231, 11%, 63%);
+  cursor: pointer;
+}
+
+.backBtn:hover {
+  color: hsl(213, 96%, 18%);
+}
+
+.confirmBtn {
+  margin: 0.5rem 0;
+  margin-left: auto;
+  background-color: hsl(243, 100%, 62%);
+  color: white;
+  font-family: inherit;
+  padding: 0.7rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 6rem;
+
+}
+
+.confirmBtn:hover {
+  background-color: rgba(71, 61, 255, 0.9);
+}
