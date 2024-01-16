@@ -6,6 +6,7 @@ import AddOnsForm from "./components/Forms/AddOnsForm/AddOnsForm";
 import Summary from "./components/Forms/Summary/Summary";
 import Button from "./components/Button/Button";
 import Sidebar from "./components/Sidebar/Sidebar";
+import ConfirmationCard from "./components/ConfirmationCard/ConfirmationCard";
 import classes from "./App.module.css";
 import { useState } from "react";
 
@@ -13,9 +14,10 @@ const App = () => {
   const [name, setName] = useState("Marie Mdin");
   const [email, setEmail] = useState("marie@gmail.com");
   const [phoneNum, setPhoneNum] = useState("210398123");
-  const [currentPage, setCurrentPage] = useState("step1");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [purchaseConfirmed, setPurchaseConfirmed] = useState(false);
   let formContent = null;
-  if (currentPage === "step1") {
+  if (currentPage === 1) {
     formContent = (
       <PersonalInfoForm
         name={name}
@@ -26,50 +28,63 @@ const App = () => {
         setPhoneNum={setPhoneNum}
       />
     );
-  } else if (currentPage === "step2") {
+  } else if (currentPage === 2) {
     formContent = <SelectPlanForm />;
-  } else if (currentPage === "step3") {
+  } else if (currentPage === 3) {
     formContent = <AddOnsForm />;
-  } else if (currentPage === "step4") {
+  } else if (currentPage === 4) {
     formContent = <Summary price="9" plan="Arcade" billingOption="monthly" />;
   }
 
-  const clickHandler = () => {
+  const pageChangeHandler = (next) => {
     setCurrentPage((prevState) => {
-      if (prevState === "step2") {
-        return "step1";
-      } else if (prevState === "step3") {
-        return "step2";
-      } else if (prevState === "step4") {
-        return "step3";
+      if (next) {
+        return prevState + 1;
+      } else {
+        return prevState - 1;
       }
     });
+  };
+
+  const confirmationHandler = () => {
+    setPurchaseConfirmed(true);
   };
 
   return (
     <Card>
       <Sidebar currentPage={currentPage} />
-      <div className={classes.formAndButton}>
-        {formContent}
-        <div className={classes.pageBtns}>
-          {currentPage !== "step1" && (
-            <button onClick={clickHandler} className={classes.backBtn}>
-              Go back
-            </button>
-          )}
+      {!purchaseConfirmed ? (
+        <div className={classes.formAndButton}>
+          {formContent}
+          <div className={classes.pageBtns}>
+            {currentPage !== 1 && (
+              <button
+                onClick={() => pageChangeHandler(false)}
+                className={classes.backBtn}
+              >
+                Go back
+              </button>
+            )}
 
-          {currentPage !== "step4" && (
-            <Button
-              text="Next Step"
-              setCurrentPage={setCurrentPage}
-              currentPage={currentPage}
-            />
-          )}
-          {currentPage === "step4" && (
-            <button className={classes.confirmBtn}>Confirm</button>
-          )}
+            {currentPage !== 4 && (
+              <Button
+                text="Next Step"
+                onClick={() => pageChangeHandler(true)}
+              />
+            )}
+            {currentPage === 4 && (
+              <button
+                onClick={confirmationHandler}
+                className={classes.confirmBtn}
+              >
+                Confirm
+              </button>
+            )}
+          </div>
         </div>
-      </div>
+      ) : (
+        <ConfirmationCard />
+      )}
     </Card>
   );
 };

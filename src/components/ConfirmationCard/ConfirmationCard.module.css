@@ -1,0 +1,23 @@
+.confirmationCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 27rem;
+}
+
+.confirmationHeading {
+    margin: 0.5rem 0 ;
+}
+
+.confirmationIcon {
+  width: 4rem;
+  margin: 1rem 0;
+}
+
+.confirmationMsg {
+  text-align: center;
+  color: hsl(231, 11%, 63%);
+  margin: 0.5rem 0 ;
+
+}

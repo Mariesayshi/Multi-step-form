@@ -12,6 +12,11 @@
   font-weight: 700;
 }
 
+.currentStepNumber {
+  background-color: white;
+  color: hsl(213, 96%, 18%);
+}
+
 .step {
   display: flex;
   align-items: center;
