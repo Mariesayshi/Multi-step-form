@@ -1,6 +1,6 @@
 import classes from "./AddOnsForm.module.css";
 import AddOn from "../../AddOn/AddOn";
-const AddOnsForm = () => {
+const AddOnsForm = ({ monthlyBilling, addOns, setAddOns }) => {
   return (
     <form>
       <h1 className={classes.heading}>Pick add-ons</h1>
@@ -9,22 +9,31 @@ const AddOnsForm = () => {
       </p>
 
       <AddOn
+        added={addOns.onlineService.selected}
+        setAddOns={setAddOns}
         title="Online service"
         description="Access to multiplayer games"
-        id="onlineServices"
-        price="1"
+        id="onlineService"
+        monthlyPrice={addOns.onlineService.price}
+        monthlyBilling={monthlyBilling}
       />
       <AddOn
+        added={addOns.largerStorage.selected}
+        setAddOns={setAddOns}
         title="Larger storage"
         description="Extra 1TB of cloud save"
         id="largerStorage"
-        price="2"
+        monthlyPrice={addOns.largerStorage.price}
+        monthlyBilling={monthlyBilling}
       />
       <AddOn
+        added={addOns.customizableProfile.selected}
+        setAddOns={setAddOns}
         title="Customizable Profile"
         description="Custom theme on your profile"
         id="customizableProfile"
-        price="3"
+        monthlyPrice={addOns.customizableProfile.price}
+        monthlyBilling={monthlyBilling}
       />
     </form>
   );

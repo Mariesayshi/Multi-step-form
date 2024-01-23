@@ -17,7 +17,7 @@ const PersonalInfoForm = ({
       </p>
       <Input
         id="nameInput"
-        placeholder="First and last name"
+        placeholder="e.g. Stephen King"
         labelText="Name"
         type="text"
         value={name}
@@ -25,21 +25,19 @@ const PersonalInfoForm = ({
       />
       <Input
         id="emailInput"
-        placeholder="@ Address"
+        placeholder="e.g. stephenking@lorem.com"
         labelText="Email Address"
         type="email"
         value={email}
         setValue={setEmail}
-
       />
       <Input
         id="phoneInput"
-        placeholder="Phone Number"
+        placeholder="e.g. +1 234 567 890"
         labelText="Phone Number"
         type="number"
         value={phoneNum}
         setValue={setPhoneNum}
-
       />
     </form>
   );

@@ -7,11 +7,18 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 9rem;
-  height: 10rem;
+  position: relative;
+  cursor: pointer;
 }
 
-.plan:focus {
+.plan:hover,
+.selected {
   border: 1px solid hsl(243, 100%, 62%);
+  background-color: hsl(231, 100%, 99%);
+}
+
+.planIcon {
+  margin-bottom: 2rem;
 }
 
 .headingAndPrice {
@@ -22,11 +29,24 @@
 }
 
 .heading,
-.price {
-  margin: 0;
+.price,
+.freeMonths {
+  margin: 0.1rem 0;
 }
 
 .price {
   font-size: 0.8rem;
   color: hsl(231, 11%, 63%);
+}
+
+.checkboxNat {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -1rem;
+  left: -1rem;
+}
+
+.freeMonths {
+  font-size: 0.8rem;
 }

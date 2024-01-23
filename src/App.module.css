@@ -20,6 +20,7 @@
   font-weight: 700;
   color: hsl(231, 11%, 63%);
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 .backBtn:hover {
@@ -40,7 +41,6 @@
   border-radius: 5px;
   cursor: pointer;
   min-width: 6rem;
-
 }
 
 .confirmBtn:hover {

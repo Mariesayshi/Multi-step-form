@@ -4,7 +4,19 @@ import arcadeIcon from "../../../assets/icon-arcade.svg";
 import advancedIcon from "../../../assets/icon-advanced.svg";
 import proIcon from "../../../assets/icon-pro.svg";
 import ToggleSwitch from "../../ToggleSwitch/ToggleSwitch";
-const SelectPlanForm = () => {
+const SelectPlanForm = ({
+  selectedPlan,
+  setSelectedPlan,
+  monthlyBilling,
+  setMonthlyBilling,
+}) => {
+  const switchHandler = () => {
+    console.log;
+    setMonthlyBilling((prevState) => {
+      return !prevState;
+    });
+  };
+
   return (
     <form>
       <h1 className={classes.heading}>Select Plan</h1>
@@ -12,13 +24,34 @@ const SelectPlanForm = () => {
         You have the option of monthly or yearly billing.
       </p>
       <div className={classes.plans}>
-        <Plan src={arcadeIcon} heading="Arcade" price="9" />
-        <Plan src={advancedIcon} heading="Advanced" price="12" />
-        <Plan src={proIcon} heading="Pro" price="15" />
+        <Plan
+          setSelectedPlan={setSelectedPlan}
+          selected={selectedPlan.plan}
+          src={arcadeIcon}
+          heading="Arcade"
+          monthlyPrice={9}
+          monthlyBilling={monthlyBilling}
+        />
+        <Plan
+          setSelectedPlan={setSelectedPlan}
+          selected={selectedPlan.plan}
+          src={advancedIcon}
+          heading="Advanced"
+          monthlyPrice={12}
+          monthlyBilling={monthlyBilling}
+        />
+        <Plan
+          setSelectedPlan={setSelectedPlan}
+          selected={selectedPlan.plan}
+          src={proIcon}
+          heading="Pro"
+          monthlyPrice={15}
+          monthlyBilling={monthlyBilling}
+        />
       </div>
       <div className={classes.billingSwitch}>
         <span className={classes.billingOption}>Monthly</span>
-        <ToggleSwitch />
+        <ToggleSwitch switchHandler={switchHandler} />
         <span className={classes.billingOption}>Yearly</span>
       </div>
     </form>

@@ -5,9 +5,12 @@
   cursor: pointer;
 }
 
-.addOn:hover {
+.addOn:hover, 
+.checked {
   border: 1px solid hsl(243, 100%, 62%);
 }
+
+
 
 .title {
   margin: 0.2rem 0;
@@ -55,3 +58,4 @@
   font-size: 0.7rem;
   font-weight: 700;
 }
+

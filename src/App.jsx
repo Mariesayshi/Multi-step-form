@@ -11,11 +11,22 @@ import classes from "./App.module.css";
 import { useState } from "react";
 
 const App = () => {
-  const [name, setName] = useState("Marie Mdin");
-  const [email, setEmail] = useState("marie@gmail.com");
-  const [phoneNum, setPhoneNum] = useState("210398123");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNum, setPhoneNum] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedPlan, setSelectedPlan] = useState({
+    plan: "Arcade",
+    price: 9,
+  });
   const [purchaseConfirmed, setPurchaseConfirmed] = useState(false);
+  const [monthlyBilling, setMonthlyBilling] = useState(true);
+  const [addOns, setAddOns] = useState({
+    onlineService: { selected: false, price: 1 },
+    largerStorage: { selected: false, price: 2 },
+    customizableProfile: { selected: false, price: 3 },
+  });
+
   let formContent = null;
   if (currentPage === 1) {
     formContent = (
@@ -29,11 +40,30 @@ const App = () => {
       />
     );
   } else if (currentPage === 2) {
-    formContent = <SelectPlanForm />;
+    formContent = (
+      <SelectPlanForm
+        selectedPlan={selectedPlan}
+        setSelectedPlan={setSelectedPlan}
+        monthlyBilling={monthlyBilling}
+        setMonthlyBilling={setMonthlyBilling}
+      />
+    );
   } else if (currentPage === 3) {
-    formContent = <AddOnsForm />;
+    formContent = (
+      <AddOnsForm
+        monthlyBilling={monthlyBilling}
+        addOns={addOns}
+        setAddOns={setAddOns}
+      />
+    );
   } else if (currentPage === 4) {
-    formContent = <Summary price="9" plan="Arcade" billingOption="monthly" />;
+    formContent = (
+      <Summary
+      selectedPlan={selectedPlan}
+        monthlyBilling={monthlyBilling}
+        addOns={addOns}
+      />
+    );
   }
 
   const pageChangeHandler = (next) => {
