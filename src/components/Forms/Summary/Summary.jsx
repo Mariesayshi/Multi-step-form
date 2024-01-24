@@ -1,6 +1,6 @@
 import classes from "./Summary.module.css";
 
-const Summary = ({ addOns, selectedPlan, monthlyBilling }) => {
+const Summary = ({ addOns, selectedPlan, monthlyBilling, setCurrentPage }) => {
   const period = monthlyBilling ? "mo" : "yr";
   const priceMultipliable = monthlyBilling ? 1 : 10;
   let totalPrice = selectedPlan.price;
@@ -10,6 +10,10 @@ const Summary = ({ addOns, selectedPlan, monthlyBilling }) => {
       totalPrice += addOns[addOn].price;
     }
   }
+
+  const planChangeHandler = () => {
+    setCurrentPage(2);
+  };
 
   return (
     <div>
@@ -23,7 +27,9 @@ const Summary = ({ addOns, selectedPlan, monthlyBilling }) => {
             <span className={classes.plan}>
               {selectedPlan.plan} ({monthlyBilling ? "mo" : "yr"})
             </span>
-            <button className={classes.changeBtn}>Change</button>
+            <button className={classes.changeBtn} onClick={planChangeHandler}>
+              Change
+            </button>
           </div>
           <span className={classes.price}>
             ${selectedPlan.price * priceMultipliable}/{period}

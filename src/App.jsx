@@ -11,9 +11,13 @@ import classes from "./App.module.css";
 import { useState } from "react";
 
 const App = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNum, setPhoneNum] = useState("");
+  const [name, setName] = useState({ value: "", valid: null, errorMsg: "" });
+  const [email, setEmail] = useState({ value: "", valid: null, errorMsg: "" });
+  const [phoneNum, setPhoneNum] = useState({
+    value: "",
+    valid: null,
+    errorMsg: "",
+  });
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedPlan, setSelectedPlan] = useState({
     plan: "Arcade",
@@ -59,14 +63,58 @@ const App = () => {
   } else if (currentPage === 4) {
     formContent = (
       <Summary
-      selectedPlan={selectedPlan}
+        selectedPlan={selectedPlan}
         monthlyBilling={monthlyBilling}
         addOns={addOns}
+        setCurrentPage={setCurrentPage}
       />
     );
   }
 
+  const validateEmail = (value) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  };
+
   const pageChangeHandler = (next) => {
+    //basic validation
+    if (
+      currentPage === 1 &&
+      (name.value.trim() === "" ||
+        email.value.trim() === "" ||
+        phoneNum.value.trim() === "")
+    ) {
+      if (name.value.trim() === "") {
+        setName((prevState) => ({
+          ...prevState,
+          valid: false,
+          errorMsg: "This field can't be empty",
+        }));
+      }
+      if (email.value.trim() === "") {
+        console.log("checking emptyness");
+        setEmail((prevState) => ({
+          ...prevState,
+          valid: false,
+          errorMsg: "This field can't be empty",
+        }));
+      } else if (!validateEmail(email.value)) {
+        console.log("checking email");
+
+        setEmail((prevState) => ({
+          ...prevState,
+          valid: false,
+          errorMsg: "email is not valid",
+        }));
+      }
+      if (phoneNum.value.trim() === "") {
+        setPhoneNum((prevState) => ({
+          ...prevState,
+          valid: false,
+          errorMsg: "This field can't be empty",
+        }));
+      }
+      return;
+    }
     setCurrentPage((prevState) => {
       if (next) {
         return prevState + 1;

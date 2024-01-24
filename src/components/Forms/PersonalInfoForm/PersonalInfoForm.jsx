@@ -9,6 +9,9 @@ const PersonalInfoForm = ({
   phoneNum,
   setPhoneNum,
 }) => {
+
+
+
   return (
     <form>
       <h1 className={classes.heading}>Personal info</h1>
@@ -20,24 +23,30 @@ const PersonalInfoForm = ({
         placeholder="e.g. Stephen King"
         labelText="Name"
         type="text"
-        value={name}
+        value={name.value}
         setValue={setName}
+        valid={name.valid}
+        errorMsg={name.errorMsg}
       />
       <Input
         id="emailInput"
         placeholder="e.g. stephenking@lorem.com"
         labelText="Email Address"
         type="email"
-        value={email}
+        value={email.value}
         setValue={setEmail}
+        valid={email.valid}
+        errorMsg={email.errorMsg}
       />
       <Input
         id="phoneInput"
         placeholder="e.g. +1 234 567 890"
         labelText="Phone Number"
         type="number"
-        value={phoneNum}
+        value={phoneNum.value}
         setValue={setPhoneNum}
+        valid={phoneNum.valid}
+        errorMsg={phoneNum.errorMsg}
       />
     </form>
   );

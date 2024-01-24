@@ -7,7 +7,6 @@
   font-size: 0.9rem;
   margin: 0;
   margin-bottom: 2rem;
-  
 }
 
 .summary {
@@ -32,6 +31,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   font-family: inherit;
+  cursor: pointer;
 }
 
 .planAndChangebtn {
@@ -57,8 +57,6 @@
   margin: 0.5rem 0;
   font-size: 0.9rem;
   font-weight: 500;
-
-
 }
 
 .addOnPrice {
@@ -82,5 +80,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-

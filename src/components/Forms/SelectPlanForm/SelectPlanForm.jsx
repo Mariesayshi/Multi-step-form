@@ -51,7 +51,7 @@ const SelectPlanForm = ({
       </div>
       <div className={classes.billingSwitch}>
         <span className={classes.billingOption}>Monthly</span>
-        <ToggleSwitch switchHandler={switchHandler} />
+        <ToggleSwitch switchHandler={switchHandler} checked={!monthlyBilling} />
         <span className={classes.billingOption}>Yearly</span>
       </div>
     </form>
