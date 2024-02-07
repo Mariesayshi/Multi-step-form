@@ -95,13 +95,6 @@ const App = () => {
           valid: false,
           errorMsg: "This field can't be empty",
         }));
-      } else if (!validateEmail(email.value)) {
-
-        setEmail((prevState) => ({
-          ...prevState,
-          valid: false,
-          errorMsg: "email is not valid",
-        }));
       }
       if (phoneNum.value.trim() === "") {
         setPhoneNum((prevState) => ({
@@ -110,6 +103,13 @@ const App = () => {
           errorMsg: "This field can't be empty",
         }));
       }
+      return;
+    } else if (currentPage === 1 && !validateEmail(email.value)) {
+      setEmail((prevState) => ({
+        ...prevState,
+        valid: false,
+        errorMsg: "email is not valid",
+      }));
       return;
     }
     setCurrentPage((prevState) => {
