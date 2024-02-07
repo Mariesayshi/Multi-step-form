@@ -11,7 +11,6 @@ const SelectPlanForm = ({
   setMonthlyBilling,
 }) => {
   const switchHandler = () => {
-    console.log;
     setMonthlyBilling((prevState) => {
       return !prevState;
     });

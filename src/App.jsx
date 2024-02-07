@@ -1,4 +1,3 @@
-// import classes from "./App.css";
 import Card from "./components/Card/Card";
 import PersonalInfoForm from "./components/Forms/PersonalInfoForm/PersonalInfoForm";
 import SelectPlanForm from "./components/Forms/SelectPlanForm/SelectPlanForm";
@@ -91,14 +90,12 @@ const App = () => {
         }));
       }
       if (email.value.trim() === "") {
-        console.log("checking emptyness");
         setEmail((prevState) => ({
           ...prevState,
           valid: false,
           errorMsg: "This field can't be empty",
         }));
       } else if (!validateEmail(email.value)) {
-        console.log("checking email");
 
         setEmail((prevState) => ({
           ...prevState,
